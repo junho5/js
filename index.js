@@ -1,5 +1,14 @@
-console.log('Hello Codeit!')
-console.log('Hello Codeit!')
+function greetings(sentence){
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('Hi')
+  console.log('sentence')
+  
+};
 
-let moca =4900;
-console.log(moca*2)
+greetings('HOla');
