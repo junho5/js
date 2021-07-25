@@ -21,3 +21,7 @@ let x = getTwice(5);
 let y = getTwice(10);
 
 console.log(x*y);
+
+console.log(7%3);
+console.log(7**2);
+console.log('코드잇')
