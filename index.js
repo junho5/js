@@ -1,36 +1,14 @@
-function welcome(name){
-  console.log('안녕하세요'+name+'님');
+console.log(typeof 101);
+console.log(typeof '101');
+console.log(typeof 101);
+
+let name ='codeit';
+function sayhello(){
+  console.log('sayhello');
 }
 
-welcome('junho')
+console.log(typeof name);
+console.log(typeof sayhello);
 
-function add(a,b){
-  console.log(a+b);
-}
-add(2,5);
-
-function getTwo(){
-  return 2;
-}
-console.log(getTwo());
-
-function getTwice(number){
-  return number *2;
-}
-let x = getTwice(5);
-let y = getTwice(10);
-
-console.log(x*y);
-
-console.log(7%3);
-console.log(7**2);
-console.log('코드잇');
-
-console.log("I'm student");
-console.log("I\'m student\"I\'m student");
-console.log(`I'm student I'm student`);
-
-console.log(2>1);
-console.log(2<1);
-
-
+console.log(typeof 'hello'+'codeit');
+console.log(typeof 8-4);
