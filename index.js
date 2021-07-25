@@ -24,9 +24,13 @@ console.log(x*y);
 
 console.log(7%3);
 console.log(7**2);
-console.log('코드잇')
+console.log('코드잇');
 
-console.log("I'm student")
-console.log("I\'m student\"I\'m student")
-console.log(`I'm student I'm student`)
+console.log("I'm student");
+console.log("I\'m student\"I\'m student");
+console.log(`I'm student I'm student`);
+
+console.log(2>1);
+console.log(2<1);
+
 
