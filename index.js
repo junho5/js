@@ -1,14 +1,16 @@
-let year = 2018;
-let month = 3;
-let day = 11;
+//null과 undefinde
 
-console.log('생년월일은 ' + year + '년 ' + month + '월 ' + day + '일 입니다.');
-console.log(`생년월일은 ${year}년 ${month}월 ${day}일 입니다.`);
+let codeit;
+console.log(codeit);
 
-let myNumber = 3;
+codeit = null;
+console.log(codeit);
 
-function getTwice(x){
-  return x*2;
-}
+let cup;
+console.log(cup); // undefined
+cup='물';
+console.log(cup); // 물
+cup=null;
+console.log(cup); // null
 
-console.log(`${myNumber}의 두배는 ${getTwice(myNumber)}입니다`);
+//null은 의도적인 없음을 표시 , undefined는 처음부터 없음을 표시
