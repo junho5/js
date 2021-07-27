@@ -1,21 +1,14 @@
-console.log(4+'2');
-console.log(4+2);
-console.log(4-true);
-console.log(4*false);
-console.log(4/'2');
-console.log('4'**true);
-console.log(4%'two');
+let year = 2018;
+let month = 3;
+let day = 11;
 
+console.log('생년월일은 ' + year + '년 ' + month + '월 ' + day + '일 입니다.');
+console.log(`생년월일은 ${year}년 ${month}월 ${day}일 입니다.`);
 
-console.log(2<'3');
-console.log(2>true);
-console.log('2'<=false);
-console.log('two'>=1);
+let myNumber = 3;
 
+function getTwice(x){
+  return x*2;
+}
 
-// ===는 일치, 불일치 (형변환 x)
-// ==는 동등, 부등 (형변환)
-console.log(1==='1');
-console.log(1===true);
-console.log(1=='1');
-console.log(1==true);
+console.log(`${myNumber}의 두배는 ${getTwice(myNumber)}입니다`);
