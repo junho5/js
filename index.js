@@ -1,16 +1,7 @@
-//null과 undefinde
+// 할당 연산자 (Assignment operators)
 
-let codeit;
-console.log(codeit);
+let name = '코드잇';
+let x = 5;
 
-codeit = null;
-console.log(codeit);
-
-let cup;
-console.log(cup); // undefined
-cup='물';
-console.log(cup); // 물
-cup=null;
-console.log(cup); // null
-
-//null은 의도적인 없음을 표시 , undefined는 처음부터 없음을 표시
+x = x - 2;
+console.log(x);
