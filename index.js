@@ -1,12 +1,10 @@
-// 옵셔널 파라미터 (Optional Parameters)
+// Scope : 범위, 영역
+let x = 3; // 글로벌 변수, 전역 변수
 
-function introduce(name, age, nationality = '한국'){
-  console.log(`제 이름은 ${name}입니다.`);
-  console.log(`나이는 ${age}입니다.`);
-  console.log(`국적은 ${nationality}입니다.`);
+function myFunction(){ // 블록문
+  let x = 3; // 로컬변수, 지역변수
+  console.log(x);
 }
 
-introduce('오준호',21,'미국');
-introduce('오준호',21,2);
-introduce('');
-
+myFunction();
+console.log(x);
