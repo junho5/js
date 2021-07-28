@@ -1,7 +1,14 @@
-// 할당 연산자 (Assignment operators)
+function sayHello(){
+  console.log('Hello');
+  console.log('Welcome to Codeit!');
+}
 
-let name = '코드잇';
-let x = 5;
+function calculator(x,y){
+  console.log(`${x} * ${y} = ${x*y}`);
+}
 
-x = x - 2;
-console.log(x);
+console.log('함수 호출 전');
+sayHello();
+console.log('함수 호출 후')
+
+calculator(3,4);
