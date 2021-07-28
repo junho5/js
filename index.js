@@ -1,14 +1,12 @@
-function sayHello(){
-  console.log('Hello');
-  console.log('Welcome to Codeit!');
+// 옵셔널 파라미터 (Optional Parameters)
+
+function introduce(name, age, nationality = '한국'){
+  console.log(`제 이름은 ${name}입니다.`);
+  console.log(`나이는 ${age}입니다.`);
+  console.log(`국적은 ${nationality}입니다.`);
 }
 
-function calculator(x,y){
-  console.log(`${x} * ${y} = ${x*y}`);
-}
+introduce('오준호',21,'미국');
+introduce('오준호',21,2);
+introduce('');
 
-console.log('함수 호출 전');
-sayHello();
-console.log('함수 호출 후')
-
-calculator(3,4);
