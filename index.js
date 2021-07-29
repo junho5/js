@@ -1,6 +1,11 @@
-// 반복문 for문
+function star(height){
+  let result='';
 
-for (let i = 1; i<=10; i++){
-  console.log(`${i}번째`);
+  for (let i = 1;i<=height;i++){
+    result+='*';
+    console.log(result);
+  }
 }
+
+star(3);
 
