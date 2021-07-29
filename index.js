@@ -1,10 +1,19 @@
-// if문
-let temperature = 0;
+// switch문
+let mychoice = 2;
 
-if(temperature<=0){
-  console.log('물이 업니다.');
-} else if(temperature<100){
-  console.log('물이 얼지도 끓지도 않습니다.');
-} else{
-  console.log('물이 얼지 않습니다.')
+switch(mychoice){
+  case 1:
+    console.log('토끼');
+    break;
+  case 2:
+    console.log('호랑이');
+    break;
+  case 3:
+    console.log('강아지');
+    break;
+  case 4:
+    console.log('코알라');
+    break;
+  default:
+    console.log('1~4선택헤주세요');
 }
