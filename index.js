@@ -1,23 +1,10 @@
-// 상수
-// 상수는 표현할때 대문자 , 두단어 이상은 _ 사용 
-// const PI , const MY_NUMBER
-const PI = 3.14
-// let PI = 3.14; // 원주율
-let radius = 0; // 반지름
+// if문
+let temperature = 0;
 
-function calculateArea(){
-  return PI * radius * radius;
+if(temperature<=0){
+  console.log('물이 업니다.');
+} else if(temperature<100){
+  console.log('물이 얼지도 끓지도 않습니다.');
+} else{
+  console.log('물이 얼지 않습니다.')
 }
-
-function printArea(){
-  return `반지름이 ${radius}일 떄, 원의 넓이는 ${calculateArea()}`;
-}
-
-radius = 4 ;
-console.log(printArea());
-
-radius = 7 ;
-console.log(printArea());
-
-radius = 8 ;
-console.log(printArea());
