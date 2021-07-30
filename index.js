@@ -1,8 +1,26 @@
-// while문
-// 반복문 밖에서 변수를 사용할때 나름 유용함
+//break continue문
+
 let i = 1;
 
-while (i<=10){
-  console.log(`${i}번째`);
+while (i<=100){
+  console.log(`${i}`);
+  if(i===7){
+    break;
+  }
+}
+
+for (let i = 1;i<=10;i++){
+  if(i%2===0){
+    continue;
+  }console.log(i);
+}
+
+let i = 1;
+
+while(i<=10){
+  if(i%2===0){
+    i++;
+    continue;
+  }console.log(i);
   i++;
 }
