@@ -33,7 +33,9 @@ console.log(codeit.name);
 
 // 객체 추가
 codeit.ceo = '전종훈';
+codeit['new ceo'] = '권동섭';
 console.log(codeit.ceo);
+console.log(codeit['new ceo']);
 
 // 객체 삭제
 delete codeit.worstcourse;
@@ -47,3 +49,5 @@ if ('name' in codeit){
 }else{
   console.log(`${codeit.name}은 존재하지 않음`)
 }
+
+console.log(codeit);
