@@ -45,7 +45,7 @@ console.log(codeit.worstcourse);
 console.log('name' in codeit);
 
 if ('name' in codeit){
-  console.log(`${codeit.name}은 존재함`)
+  console.log(`${codeit['name']}은 존재함`)
 }else{
   console.log(`${codeit.name}은 존재하지 않음`)
 }
