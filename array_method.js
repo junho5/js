@@ -11,45 +11,23 @@ members.splice(1, 2, 'Nice append' , 'one more');
 console.log(members);
 
 
-//-------------------------------------------------------------------------------
-let fruits = ['레몬', '토마토', '딸기', '바나나'];
-let ages = [20, 24, 25, 29, 30, 33];
-let numbers = [];
+// 배열의 첫 요소를 삭제 : shift()
+members.shift();
 
-// fruits 배열에 '토마토'를 삭제하고 그 자리에 '사과', '청포도' 를 추가해 주세요.
-fruits.splice(1,1,'사과','청포도');
+// 배열의 마지막 요소를 삭제 : pop()
+members.pop();
 
+// 배열의 첫 요소로 값 추가 : unshift()
+members.unshift();
 
-// fruits 배열의 첫 번째 요소를 삭제해 주세요.
-fruits.splice(0,1);
+// 배열의 마지막 요소로 값 추가 : push()
+members.push();
 
+// 배열에서 특정한 값 찾기 : indexof(앞부터) / lastindexof (뒤부터) 인덱스 값을 리턴 없으면 -1 리턴
+members.indexOf('쿤갈레');
 
-// ages 배열에 마지막 요소를 삭제해 주세요.
-ages.splice(ages.length-1,1);
+// 배열에서 특정 값 확인 : includes   true false 반환
+members.includes('흙토끼');
 
-
-// ages 배열의 2번, 3번 인덱스를 26, 28로 변경해 주세요.
-ages.splice(2,2,26,28);
-
-
-// numbers 배열에 1, 2, 3, 5, 8, 9를 순서대로 추가해 주세요.
-numbers.splice(0,0,1,2,3,5,8,9);
-
-
-
-// 반복문을 활용해서 numbers 배열의 요소들 중 홀수를 모두 삭제해 주세요.
-for (let i =0;i<=numbers.length-1;i++){
-  if(numbers[i]%2!==0){
-    numbers.splice(i,1);
-    i--;
-  }
-}
-
-
-// 테스트 코드
-console.log(fruits[1]);
-console.log(fruits[0]);
-console.log(ages[ages.length - 1]);
-console.log(ages[3]);
-console.log(numbers[3]);
-console.log(numbers);
+// 배열 뒤집기 : recerse
+members.reverse();
