@@ -16,6 +16,8 @@ console.log(array.length);
 // 배열 요소 추가
 array[5] = '추가된 요소';
 console.log(array[5]);
+// 배열 요소 이런식도 가능 +연산도 사용 가능
+array['이런식도 가능'] = 1;
 
 // 배열 요소 수정
 array[5] =  '수정된 요소';
