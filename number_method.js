@@ -4,7 +4,7 @@ let myNumber = 0.3591;
 // toFixed(0 ~ 100) 하지만 toFixed 쓰면 string로 변환 / 소숫점 자리 정하기
 console.log(myNumber.toFixed(3));
 console.log(myNumber.toFixed(7));
-console.log(Number(myNumber.toFixed(7)));
+console.log(Number(myNumber.toFixed(7))); // 숫자로 변환
 console.log(+myNumber.toFixed(7)); // 위랑 동일
 
 // toString (2 ~ 36) 원하는 진법으로 변환
