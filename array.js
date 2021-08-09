@@ -27,5 +27,4 @@ console.log(array[5]);
 console.log(array);
 delete array[5];
 console.log(array);
-
 // 해당 방법으로 하면 배열 길이가 줄어들지 않는 문제 발생 method를 사용해야댐
