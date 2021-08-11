@@ -10,6 +10,8 @@ console.log(members);
 members.splice(1, 2, 'Nice append' , 'one more');
 console.log(members);
 
+// slice (start , end) 
+members.slice(2,4);
 
 // 배열의 첫 요소를 삭제 : shift()
 members.shift();
@@ -29,5 +31,5 @@ members.indexOf('쿤갈레');
 // 배열에서 특정 값 확인 : includes   true false 반환
 members.includes('흙토끼');
 
-// 배열 뒤집기 : recerse
+// 배열 뒤집기 : reverse
 members.reverse();
