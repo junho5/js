@@ -5,7 +5,7 @@ let greetings = {
     console.log('Hello');
   },
   sayHi: function(name){
-    console.log('Hi ${name}');
+    console.log(`Hi ${name}`);
   },
   sayBye: function(){
     console.log('Bye');
