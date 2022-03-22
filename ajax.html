@@ -1,0 +1,27 @@
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+<script>
+    axios.get('https://jsonplaceholder.typicode.com/todos',{
+        params: {userId : 1}
+    })
+    .then( (result) => {
+        console.log(result.data);
+    })
+    .catch( (error) => {
+        console.error(error);
+    });
+</script> -->
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+<script>
+    axios.post('https://jsonplaceholder.typicode.com/todos',{
+        userId : 60,
+        title: 'Study NodeJS',
+        completed: false
+    })
+    .then( (result) => {
+        console.log(result.data);
+    })
+    .catch( (error) => {
+        console.error(error);
+    });
+</script>
