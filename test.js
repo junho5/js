@@ -1,12 +1,17 @@
-let a = 100 , b = 20, c=-3
+const fs = require('fs').promises;
 
-console.log(a+" + "+b+" + "+c+" = "+(a+b+c))
-console.log(`${a} + ${b} + ${c} = ${a+b+c}`)
-
-
-let string = '문자열1\n문자열2'
-let string2 = `문자열1
-문자열2`
-
-console.log(string)
-console.log(string2)
+fs.readdir('./folder')
+  .then((dir) => {
+    console.log('폴더 내용 확인', dir);
+    return fs.unlink('./folder/newfile.js');
+  })
+  .then(() => {
+    console.log('파일 삭제 성공');
+    return fs.rmdir('./folder');
+  })
+  .then(() => {
+    console.log('폴더 삭제 성공');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
