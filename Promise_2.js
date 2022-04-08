@@ -23,16 +23,16 @@ function videoDetails(video) {
     });
 }
 
-// loginUser('jypark', 123456)
-//     .then(user => {
-//         console.log(`${user.userId}님 환영합니다.`);
-//         return getUserVdeos(user.id);
-//     })
-//     .then(videos => {
-//         console.log(videos);
-//         return videoDetails(videos[0]);
-//     })
-//     .then(details => console.log(details))
+loginUser('jypark', 123456)
+    .then(user => {
+        console.log(`${user.userId}님 환영합니다.`);
+        return getUserVdeos(user.id);
+    })
+    .then(videos => {
+        console.log(videos);
+        return videoDetails(videos[0]);
+    })
+    .then(details => console.log(details))
 
 const loginGetVideos = async (id, password) => {
     let user = await loginUser(id, password);
