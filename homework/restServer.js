@@ -57,7 +57,10 @@ const restServer = http.createServer(async (req, res) => {
         const key = req.url.split('/')[2];
         req.on('data', (data) => {
           console.log('PUT 본문(Body):', data.toString());
-          users[key] = JSON.parse(data).name;
+          const name = JSON.parse(data).name
+          const price = JSON.parse(data).price
+          const stock = JSON.parse(data).stock
+          users[key] = [name,price,stock]
           res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
           res.end('ok');
         });

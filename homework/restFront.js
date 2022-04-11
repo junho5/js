@@ -1,4 +1,4 @@
-async function getUser() { 
+async function getshoes() { 
     // 로딩 시 사용자 가져오는 함수
     try {
       const res = await axios.get('/users');
@@ -11,19 +11,27 @@ async function getUser() {
                
         const userDiv = document.createElement('div');
         const span = document.createElement('span');
-        span.textContent = users[key][0] +' ' + users[key][1] +' ' + users[key][2];
+        span.textContent = users[key][0] +' / ' + users[key][1] +' / ' + users[key][2];
 
         const edit = document.createElement('button');
         edit.textContent = '수정';
         edit.addEventListener('click', async () => { 
           // 수정 버튼 클릭
           const name = prompt('바꿀 이름을 입력하세요');
+          const price = prompt('바꿀 가격을 입력하세요');
+          const stock = prompt('변경된 재고상황을 입력하세요');
           if (!name) {
             return alert('이름을 반드시 입력하셔야 합니다');
           }
+          else if (!price) {
+            return alert('가격은 반드시 입력하셔야 합니다');
+          }
+          else if (!stock) {
+            return alert('재고 상황은 반드시 입력하셔야 합니다');
+          }
           try {
-            await axios.put('/user/' + key, { name });
-            getUser();
+            await axios.put('/user/' + key, { name,price,stock });
+            getshoes();
           } catch (err) {
             console.error(err);
           }
@@ -35,7 +43,7 @@ async function getUser() {
           // 삭제 버튼 클릭
           try {
             await axios.delete('/user/' + key);
-            getUser();
+            getshoes();
           } catch (err) {
             console.error(err);
           }
@@ -51,7 +59,7 @@ async function getUser() {
     }
   }
   
-  window.onload = getUser; // 화면 로딩 시 getUser 호출
+  window.onload = getshoes; // 화면 로딩 시 getshoes 호출
   // 폼 제출(submit) 시 실행
   document.getElementById('form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -69,7 +77,7 @@ async function getUser() {
     }  
     try {
       await axios.post('/user', { name,price,stock });
-      getUser();
+      getshoes();
     } catch (err) {
       console.error(err);
     }
