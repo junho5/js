@@ -1,22 +1,21 @@
 async function getshoes() { 
-    // 로딩 시 사용자 가져오는 함수
+    // shoes의 현 상태를 보여주기 위해 사용하는 함수
     try {
-      const res = await axios.get('/users');
-      const users = res.data;
+      const res = await axios.get('/shoes');
+      const shoes = res.data;
       const list = document.getElementById('list');
       list.innerHTML = '';
 
-      // 사용자마다 반복적으로 화면 표시 및 이벤트 연결
-      Object.keys(users).map(function (key) {  
-               
-        const userDiv = document.createElement('div');
+      // 반복적으로 화면 표시 및 이벤트 연결한다.
+      Object.keys(shoes).map(function (key) {  
+        const shoeDiv = document.createElement('div');
         const span = document.createElement('span');
-        span.textContent = users[key][0] +' / ' + users[key][1] +' / ' + users[key][2];
-
+        span.textContent = shoes[key][0] +' / ' + shoes[key][1] +' / ' + shoes[key][2];
+        // 리스트 index을 이용하여 0,1,2번째 값들을 보기 쉽게하기위해 /과 같이 저장
         const edit = document.createElement('button');
         edit.textContent = '수정';
         edit.addEventListener('click', async () => { 
-          // 수정 버튼 클릭
+          // 수정 버튼 클릭시 새로 입력받은 name,price,stock으로 업데이트한다.
           const name = prompt('바꿀 이름을 입력하세요');
           const price = prompt('바꿀 가격을 입력하세요');
           const stock = prompt('변경된 재고상황을 입력하세요');
@@ -29,8 +28,9 @@ async function getshoes() {
           else if (!stock) {
             return alert('재고 상황은 반드시 입력하셔야 합니다');
           }
+          // 입력을 안할 경우 발생하는 메시지
           try {
-            await axios.put('/user/' + key, { name,price,stock });
+            await axios.put('/shoe/' + key, { name,price,stock });
             getshoes();
           } catch (err) {
             console.error(err);
@@ -40,18 +40,18 @@ async function getshoes() {
         const remove = document.createElement('button');
         remove.textContent = '삭제';
         remove.addEventListener('click', async () => { 
-          // 삭제 버튼 클릭
+          // 삭제 버튼 클릭시 해당하는 데이터를 삭제한다.
           try {
-            await axios.delete('/user/' + key);
+            await axios.delete('/shoe/' + key);
             getshoes();
           } catch (err) {
             console.error(err);
           }
         });
-        userDiv.appendChild(span);
-        userDiv.appendChild(edit);
-        userDiv.appendChild(remove);
-        list.appendChild(userDiv);
+        shoeDiv.appendChild(span);
+        shoeDiv.appendChild(edit);
+        shoeDiv.appendChild(remove);
+        list.appendChild(shoeDiv);
         console.log(res.data);
       });
     } catch (err) {
@@ -60,10 +60,10 @@ async function getshoes() {
   }
   
   window.onload = getshoes; // 화면 로딩 시 getshoes 호출
-  // 폼 제출(submit) 시 실행
   document.getElementById('form').addEventListener('submit', async (e) => {
+    // 등록 버튼 클릭시 입력받은 name,price,stock값 등록.
     e.preventDefault();
-    const name = e.target.username.value;
+    const name = e.target.shoes.value;
     const price = e.target.price.value;
     const stock = e.target.stock.value;
     if (!name) {
@@ -74,14 +74,17 @@ async function getshoes() {
       }
     if (!stock) {
       return alert('재고유무를 입력하세요');
-    }  
+    }
+    // 입력을 안할 경우 발생하는 메시지  
     try {
-      await axios.post('/user', { name,price,stock });
+      await axios.post('/shoe', { name,price,stock });
       getshoes();
+      // 추가된 목록 확인
     } catch (err) {
       console.error(err);
     }
-    e.target.username.value = '';
+    e.target.shoes.value = '';
     e.target.price.value = '';
     e.target.stock.value = '';
+    // 빈칸으로 말들기 위해 ''으로 지정
   });

@@ -1,48 +1,47 @@
 const http = require('http');
 const fs = require('fs').promises;
 
-const users = {}; // 데이터 저장용
+const shoes = {}; // shoes와 관련된 데이터 저장하기위해 있는 변수
 const port = 8080;
 
-const restServer = http.createServer(async (req, res) => {
+const ShoesServer = http.createServer(async (req, res) => {
   try {
     if (req.method === 'GET') {
-      // GET 요청
+      // GET 부분 (조회)
       if (req.url === '/') {
-        const data = await fs.readFile('./restFront.html');
+        const data = await fs.readFile('./ShoesFront.html');
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         return res.end(data);
       } else if (req.url === '/about') {
         const data = await fs.readFile('./about.html');
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         return res.end(data);
-      } else if (req.url === '/users') {
+      } else if (req.url === '/shoes') {
         res.writeHead(200, { 
             'Content-Type': 'application/json; charset=utf-8', 
         });
-        res.end(JSON.stringify(users));
+        res.end(JSON.stringify(shoes));
       }else{
-      // 기타 다른 자원을 요청하는 경우 (image, css, javascript files)
       try {
         const data = await fs.readFile(`.${req.url}`);
         res.end(data);
       } catch (err) {
-        // 주소에 해당하는 라우트를 못 찾았다는 404 Not Found error 발생
         console.error(err);
         res.writeHead(404,{'Content-Type': 'text/html; charset=utf-8'});
         res.end('NOT FOUND');
       }
     }
     } else if (req.method === 'POST') {
-      // POST 요청
-      if (req.url === '/user') {
+      // POST 부분 (등록)
+      if (req.url === '/shoe') {
         req.on('data', (data) => {
             console.log('POST 본문(Body):', data.toString());
             const { name } = JSON.parse(data);
             const { price } = JSON.parse(data);
             const { stock } = JSON.parse(data);
             const id = Date.now();
-            users[id] = [name,price,stock];
+            shoes[id] = [name,price,stock];
+            // 리스트형태로 name,price,stock 값을 shoes[id]에 넘겨준다.
             res.writeHead(201, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end('ok');
         });
@@ -52,15 +51,16 @@ const restServer = http.createServer(async (req, res) => {
           res.end('NOT FOUND');
       }
     } else if (req.method === 'PUT') {
-      // PUT 요청
-      if (req.url.startsWith('/user/')) {
+      // PUT 부분 (수정)
+      if (req.url.startsWith('/shoe/')) {
         const key = req.url.split('/')[2];
         req.on('data', (data) => {
           console.log('PUT 본문(Body):', data.toString());
           const name = JSON.parse(data).name
           const price = JSON.parse(data).price
           const stock = JSON.parse(data).stock
-          users[key] = [name,price,stock]
+          shoes[key] = [name,price,stock]
+          // 리스트형태로 name,price,stock 값을 shoes[key]에 넘겨준다.
           res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
           res.end('ok');
         });
@@ -70,10 +70,11 @@ const restServer = http.createServer(async (req, res) => {
         res.end('NOT FOUND');
     }
     } else if (req.method === 'DELETE') {
-      // DELETE 요청
-      if (req.url.startsWith('/user/')) {
+      // DELETE 부분 (삭제)
+      if (req.url.startsWith('/shoe/')) {
         const key = req.url.split('/')[2];
-        delete users[key];
+        delete shoes[key];
+        // shoes 객체에서 key값에 해당되는 부분 삭제
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
         return res.end('ok');
       }else{
@@ -93,6 +94,6 @@ const restServer = http.createServer(async (req, res) => {
   }
 })
 
-restServer.listen(port, () => {
+ShoesServer.listen(port, () => {
     console.log('8080번 포트에서 서버 대기 중입니다');
   });

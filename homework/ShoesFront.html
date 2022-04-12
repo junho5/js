@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>RESTful SERVER</title>
+  <title>Shoes Store</title>
   <link rel="stylesheet" href="./font.css" />
 </head>
 <body>
@@ -12,11 +12,11 @@
 </nav>
 <div>
     <span id="title">신발 이름</span><span id="title2">신발 가격</span><span id="title2">신발 재고상황</span>
-    
 </div>
 <div>
   <form id="form">
-    <input type="text" id="username">
+    <!-- 3가지 내용을 input 받고 button을 통해 전달 -->
+    <input type="text" id="shoes">
     <input type="text" id="price">
     <input type="text" id="stock">
     <button class="button" type="submit">등록</button>
@@ -24,6 +24,6 @@
 </div>
 <div id="list"></div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./restFront.js"></script>
+<script src="./ShoesFront.js"></script>
 </body>
 </html>
