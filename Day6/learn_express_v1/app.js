@@ -22,8 +22,8 @@ app.get('/user/:id', (req, res) => {
 });
 
 app.get('*', (req, res, next) => {
-    if (req.query){
-        console.log(`${req.query.title}, ${req.query.year}인 책을 검색 중...`);
+    if (Object.keys(req.query).length !=0){
+        console.log(`${req.query.shoe}, ${req.query.price}인 신발을 검색 중...`);
         res.send('query test');
     }else res.redirect('/');
 });
