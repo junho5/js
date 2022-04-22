@@ -1,13 +1,14 @@
 {
-  "name": "day6",
+  "name": "day7",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ojh",
+  "keywords": [],
+  "author": "OJH",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"

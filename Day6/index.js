@@ -1,1 +1,0 @@
-console.log("npm test 중 index.js 실행")
