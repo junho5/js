@@ -7,10 +7,12 @@ app.set('port', process.env.PORT || 3000);
 // 모든 요청에 대해 처리하는 미들웨어
 app.use((req, res, next) => {
   console.log('use - ' + req.path);
-  next();
+  next(); // 필수
 });
 
-// app.use와 app.all 비교용
+// app.use와 app.all 비교용 
+// -> use는 path를 안줘도 가능 무조건 실행!!! path주면 그 path 이후로 무슨값이 있어도 실행
+// -> all은 path가 동일할 경우에만 실행!!! all에다가 *을 통해 path주면 use처럼 사용 가능
 // app.all('/', (req, res, next) => {
 //   console.log('all - ' + req.path);
 //   next();
@@ -19,11 +21,10 @@ app.use((req, res, next) => {
 // 라우터 미들웨어들
 
 // 하나의 라우터 안에 미들웨어 여러개 장착시 next()로 연결 테스트
-app.get(
-  '/',
-  (req, res, next) => {
+app.get('/',(req, res, next) => {
     console.log('1st /의 first callback');
-    next('route');
+//    next(); 실행시 안쪽에 있는 미들웨어 실행
+    next('route'); // route를 넣고 실행시 안쪽에 있는 미들웨어 무시하고 실행
     // next('Some problem');
     // next(new Error('Something Wrong!')); // 에러처리 미들웨어 테스트용
   },
@@ -63,7 +64,7 @@ app.get('/search', (req, res) => {
   // res.redirect('/');
 });
 
-// 404 에러처리 미들웨어
+// 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {
   res.status(404).send(`${req.method} ${req.path} is NOT FOUND`);
   // res.status(404).end();
