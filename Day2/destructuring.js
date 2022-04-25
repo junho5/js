@@ -49,26 +49,26 @@
 // let newKey1 = key1;
 
 //  ES2015
-// let objs = {
-//     key1: 'one',
-//     key2: 'two',
-//   };
-//   let { key1: newKey1, key2, key3 = 'default_key3_value' } = objs; // key1 이라는 변수를 이제 newkey1이라고 :을 사용해서 변경 
-// //  이제 objs.key1으로만 접근 가능
+let objs = {
+    key1: 'one',
+    key2: 'two',
+  };
+  let { key1: newKey1, key2, key3 = 'default_key3_value' } = objs; // key1 이라는 변수를 이제 newkey1이라고 :을 사용해서 변경 
+//  이제 objs.key1으로만 접근 가능
 
-// //console.log(key1) //에러 발생
-// console.log(key2)
-// console.log(key3)
-// console.log(newKey1)
+//console.log(key1) //에러 발생
+console.log(key2)
+console.log(key3)
+console.log(newKey1)
 
 // ---------------------------------------------------------------------------
 
 // ES2015
- let { a, b } = { a: 10, b: 20 };
- console.log(a);     // 10
- console.log(b);     // 20
+//  let { a, b } = { a: 10, b: 20 };
+//  console.log(a);     // 10
+//  console.log(b);     // 20
 
- let { c, d, ...rest } = { c: 30, d: 40, e: 50, f: 60 };
- console.log(c);     // 30
- console.log(d);     // 40
- console.log(rest);  // {e: 50, f: 60}
+//  let { c, d, ...rest } = { c: 30, d: 40, e: 50, f: 60 };
+//  console.log(c);     // 30
+//  console.log(d);     // 40
+//  console.log(rest);  // {e: 50, f: 60}
