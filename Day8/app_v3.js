@@ -4,12 +4,9 @@
 // cookie parser, urllencoded 실습
 
 // import modules
-const dotenv = require('dotenv');
-dotenv.config();
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const session = require('express-session')
 const path = require('path');
 
 // import routers
@@ -25,21 +22,7 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-app.use(cookieParser(process.env.COOKIE_SECRET));
-
-app.use(
-    session({
-        resave: false,
-        saveUninitialized: false,
-        secret: process.env.COOKIE_SECRET,
-        cookie: {
-            httpOnly: true,
-            secure: false,
-            maxAge: 600000,
-        },
-        name: 'my-session-cookie',
-    })
-);
+app.use(cookieParser('mySign'));
 
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);
