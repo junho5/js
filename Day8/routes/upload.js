@@ -3,7 +3,7 @@
 
 const express = require('express');
 const path = require('path');
-const multer = requre('multer');
+const multer = require('multer');
 
 const router = express.Router();
 
