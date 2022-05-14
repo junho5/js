@@ -34,7 +34,7 @@ app.use(
             secure: false,
             maxAge: 600000,
         },
-        name: 'my-session-cookie',
+        name: 'session-cookie',
     })
 );
 

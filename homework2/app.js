@@ -10,23 +10,11 @@ const multer = require('multer');
 const nunjucks = require('nunjucks');
 const fs = require('fs').promises
 
-// const upload = multer({
-//     storage:multer.diskStorage({
-//         destination(req,file,done){
-//             done(null, 'uploads/');
-//         },
-//         filename(req, file, done){
-//             const ext = path.extname(file.originalname);
-//             done(null,path.basename(filw.originalname,ext)+Date.now()+ext);
-//         },
-//     }),
-//     limits:{fileSize: 5*1024*1024},
-// });
-
 // import routers
-// const loginRouter = require('./routes/login')
-// const visitRouter = require('./routes/visit')
-// const uploadRouter = require('./routes/upload')
+const loginRouter = require('./routes/login');
+// const student_scoreRouter = require('./routes/student_score');
+// const student_attendanceRouter = require('./routes/student_score');
+// const uploadRouter = require('./routes/upload');
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -42,7 +30,7 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-// app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // app.use(
 //     session({
@@ -58,37 +46,43 @@ app.use(express.urlencoded({ extended: false}));
 //     })
 // );
 
+// const upload = multer({
+//     storage:multer.diskStorage({
+//         destination(req,file,done){
+//             done(null, 'uploads/');
+//         },
+//         filename(req, file, done){
+//             const ext = path.extname(file.originalname);
+//             done(null,path.basename(filw.originalname,ext)+Date.now()+ext);
+//         },
+//     }),
+//     limits:{fileSize: 5*1024*1024},
+// });
+
 // 요청 경로에 따라 router 실행
-// app.use('/',loginRouter);
-// app.use('/visit',visitRouter);
+app.use('/',loginRouter);
+// app.use('/student_score',student_scoreRouter);
+// app.use('/student_attendance',student_attendanceRouter);
 // app.use('upload',uploadRouter);
 
-app.get('/',(req, res) => {
-    res.redirect('/login')
-})
-
-app.get('/login',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/login.html'))
-})
-
 app.get('/student_attendance',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/student_attendance.html'))
+    res.sendFile(path.join(__dirname, './views/student_attendance.html'))
 })
 
 app.get('/student_score',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/student_score.html'))
+    res.sendFile(path.join(__dirname, './views/student_score.html'))
 })
 
 app.get('/admin_attendance',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/admin_attendance.html'))
+    res.sendFile(path.join(__dirname, './views/admin_attendance.html'))
 })
 
 app.get('/admin_score',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/admin_score.html'))
+    res.sendFile(path.join(__dirname, './views/admin_score.html'))
 })
 
 app.get('/upload',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/upload.html'))
+    res.sendFile(path.join(__dirname, './views/upload.html'))
 })
 
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
