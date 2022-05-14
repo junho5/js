@@ -3,13 +3,13 @@
 
 const express = require('express');
 const path = require('path');
-const { put } = require('./login_v1');
+const { put } = require('./login');
 const fs = require('fs').promises;
 
 const router = express.Router();
 
 router.get('/',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/visit.html'))
+    res.sendFile(path.join(__dirname, '../public/visit.html'))
 })
 
 router.get('/users', async (req, res) => {

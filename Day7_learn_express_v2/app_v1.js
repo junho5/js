@@ -1,3 +1,5 @@
+// morgan, static, json 실습
+
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');

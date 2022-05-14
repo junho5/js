@@ -24,7 +24,7 @@ app.get('/user/:id', (req, res) => {
 app.get('*', (req, res, next) => {
     if (Object.keys(req.query).length !=0){
         console.log(req.query)
-        console.log(`${req.query.title}, ${req.query.price}인 신발을 검색 중...`);
+        console.log(`${req.query.title}, ${req.query.price}인 책 검색 중...`);
         res.send('query test');
     }else res.redirect('/');
 });

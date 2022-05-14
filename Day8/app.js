@@ -13,7 +13,7 @@ const session = require('express-session')
 const path = require('path');
 
 // import routers
-const loginRouter = require('./routes/login_v1')
+const loginRouter = require('./routes/login')
 const visitRouter = require('./routes/visit')
 const uploadRouter = require('./routes/upload')
 
