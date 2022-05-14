@@ -13,7 +13,7 @@ const fs = require('fs').promises
 // import routers
 const loginRouter = require('./routes/login');
 // const student_scoreRouter = require('./routes/student_score');
-// const student_attendanceRouter = require('./routes/student_score');
+const student_attendanceRouter = require('./routes/student_attendance');
 // const uploadRouter = require('./routes/upload');
 
 const app = express();
@@ -28,6 +28,7 @@ nunjucks.configure('views',{
 // express 내부 & 외부 middlewares
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'views')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -62,12 +63,8 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);
 // app.use('/student_score',student_scoreRouter);
-// app.use('/student_attendance',student_attendanceRouter);
+app.use('/student_attendance',student_attendanceRouter);
 // app.use('upload',uploadRouter);
-
-app.get('/student_attendance',(req, res) => {
-    res.sendFile(path.join(__dirname, './views/student_attendance.html'))
-})
 
 app.get('/student_score',(req, res) => {
     res.sendFile(path.join(__dirname, './views/student_score.html'))

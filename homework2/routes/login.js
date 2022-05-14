@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/',(req, res) => {
     console.log(req.signedCookies);
     if (req.signedCookies.admin) {
-        res.sendFile(path.join(__dirname, '../views/admin_score.html'))
+        res.sendFile(path.join(__dirname, '../views/student_attendance.html'))
     }else if (req.signedCookies.student) {
         res.sendFile(path.join(__dirname, '../views/student_score.html'))
     }

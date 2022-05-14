@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>File Upload</title>
+  <title>출석 등록</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -15,14 +15,18 @@
   <h1> 학생 페이지</h1>
   <h2> 학생 출석 등록 </h2> 
   <div>
-    <form id="form" action='/upload' method='post' 
-          enctype='multipart/form-data'>
-      <label>전송할 파일</label>
-      <input type="file" name="image"><br>
-      <label>파일 이름</label>
-      <input type="text" name="title"><p>
-      <button type="submit">Upload</button>
+    <form id="form">
+      <label>이름</label>
+      <input type="text" id="name"><br>
+      <label>출석 유무 Y/N</label>
+      <input type="text" id="memo">
+      <button type="submit">출석</button>
     </form>
   </div>
+  <p> 
+  <div id="list"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./frontUser.js"></script>
 </body>
 </html>
