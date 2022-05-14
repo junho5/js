@@ -1,7 +1,3 @@
-// routes/visit.js
-// 방문자 기록을 처리하는 라우터
-// router 실습
-
 const express = require('express');
 const path = require('path');
 const fs = require('fs').promises;
@@ -12,45 +8,45 @@ router.get('/',(req, res) => {
     res.sendFile(path.join(__dirname, '../views/student_attendance.html'))
 })
 
-router.get('/users', async (req, res) => {
+router.get('/attendances', async (req, res) => {
     res.sendFile(path.join(__dirname, './attendances.json'))
 })
 
-router.use('/user' , async (req, res, next) => {
-    req.users = JSON.parse(
+router.use('/attendance' , async (req, res, next) => {
+    req.attendances = JSON.parse(
         await fs.readFile(path.join(__dirname, './attendances.json'))
     );
     next();
   });
 
-router.post('/user', async (req, res) => {
-    const { name, memo} = req.body;
+router.post('/attendance', async (req, res) => {
+    const { name, attendance} = req.body;
     const id = Date.now();
-    req.users[id] = { name, memo};
+    req.attendances[id] = { name, attendance};
     await fs.writeFile(
         path.join(__dirname, './attendances.json'),
-        JSON.stringify(req.users)
+        JSON.stringify(req.attendances)
     );
     res.end();
 })
 
 router
-    .route('/user/:id')
+    .route('/attendance/:id')
     .put(async (req, res) => {
-    const { name, memo} = req.body;
+    const { name, attendance} = req.body;
     const id = Date.now();
-    req.users[req.params.id] = { name, memo};
+    req.attendances[req.params.id] = { name, attendance};
     await fs.writeFile(
         path.join(__dirname, './attendances.json'),
-        JSON.stringify(req.users)
+        JSON.stringify(req.attendances)
     );
     res.end();
     })
     .delete(async (req, res) => {
-    delete req.users[req.params.id];
+    delete req.attendances[req.params.id];
     await fs.writeFile(
         path.join(__dirname, './attendances.json'),
-        JSON.stringify(req.users)
+        JSON.stringify(req.attendances)
     );
     res.end()
     })

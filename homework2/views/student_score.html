@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>File Upload</title>
+  <title>출석 등록</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -10,19 +10,13 @@
   <nav>
     <a href="/student_score">학생 점수</a>
     <a href="/student_attendance">출석 등록</a>
-    <a href="/upload">시험 파일 업로드</a>  
+    <a href="/upload">시험 파일 업로드</a>   
   </nav>
   <h1> 학생 페이지</h1>
   <h2> 학생 시험 점수 </h2> 
-  <div>
-    <form id="form" action='/upload' method='post' 
-          enctype='multipart/form-data'>
-      <label>전송할 파일</label>
-      <input type="file" name="image"><br>
-      <label>파일 이름</label>
-      <input type="text" name="title"><p>
-      <button type="submit">Upload</button>
-    </form>
-  </div>
+  <div id="list"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./st_score.js"></script>
 </body>
 </html>

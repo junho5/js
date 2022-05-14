@@ -12,7 +12,7 @@ const fs = require('fs').promises
 
 // import routers
 const loginRouter = require('./routes/login');
-// const student_scoreRouter = require('./routes/student_score');
+const student_scoreRouter = require('./routes/student_score');
 const student_attendanceRouter = require('./routes/student_attendance');
 // const uploadRouter = require('./routes/upload');
 
@@ -62,7 +62,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);
-// app.use('/student_score',student_scoreRouter);
+app.use('/student_score',student_scoreRouter);
 app.use('/student_attendance',student_attendanceRouter);
 // app.use('upload',uploadRouter);
 
