@@ -1,5 +1,6 @@
 // routes/visit.js
 // 방문자 기록을 처리하는 라우터
+// router 실습
 
 const express = require('express');
 const path = require('path');

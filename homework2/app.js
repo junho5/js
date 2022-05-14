@@ -71,6 +71,26 @@ app.get('/login',(req, res) => {
     res.sendFile(path.join(__dirname, './public/login.html'))
 })
 
+app.get('/student_attendance',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/student_attendance.html'))
+})
+
+app.get('/student_score',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/student_score.html'))
+})
+
+app.get('/admin_attendance',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/admin_attendance.html'))
+})
+
+app.get('/admin_score',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/admin_score.html'))
+})
+
+app.get('/upload',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/upload.html'))
+})
+
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {
   res.status(404).send(`${req.method} ${req.path} is NOT FOUND`);

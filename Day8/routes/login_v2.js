@@ -1,6 +1,6 @@
 // routes/login.js
 // 로그인을 처리하는 라우터
-// cookileParser 실습
+// urlencoded, cookie-parser 실습
 
 const express = require('express');
 const path = require('path');
@@ -26,7 +26,6 @@ router.post('/admit', (req, res) => {
 
     if (login == 'guest' && password == '7777'){
         res.cookie('admit', true, {
-            //expires: new Date(Date.now() + 3000),
             maxAge: 600000, // 시간 설정 (1시간)
             httpOnly: true, // 자바스크립트에선 cookie 조작 불가
             secure: false, // true로 하면 http 전달 x https만 가능

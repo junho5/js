@@ -1,7 +1,4 @@
-// 방문자 및 방문메시지를 전역변수 users 대신 users.json에 기록
-// users.json의 기록을 읽어서 req.users에 저장
-// post, put, delete에 의해 req.users가 수정된 후 users.json에 기록
-// dotenv, session 실습
+// urlencoded, cookie-parser 실습
 
 // import modules
 const dotenv = require('dotenv');
@@ -13,9 +10,9 @@ const session = require('express-session')
 const path = require('path');
 
 // import routers
-const loginRouter = require('./routes/login')
+const loginRouter = require('./routes/login_v2')
 const visitRouter = require('./routes/visit')
-const uploadRouter = require('./routes/upload')
+const uploadRouter = require('./routes/upload_v1')
 
 const app = express();
 app.set('port', process.env.PORT || 3000);

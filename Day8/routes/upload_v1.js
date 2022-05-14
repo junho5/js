@@ -1,5 +1,6 @@
 // routes/upload.js
 // 파일 업로드를 처리하는 라우터
+// router 실습
 
 const express = require('express');
 const path = require('path');
