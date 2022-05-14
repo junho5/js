@@ -1,58 +1,28 @@
+// router 실습
+
+// import modules
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 
+// import routers
+const loginRouter = require('./routes/login_v1')
+const visitRouter = require('./routes/visit')
+const uploadRouter = require('./routes/upload_v1')
+
 const app = express();
 app.set('port', process.env.PORT || 3000);
 
+// express 내부 & 외부 middlewares
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 
-const users = {}; // 데이터 저장 용
+// 요청 경로에 따라 router 실행
+app.use('/',loginRouter);
+app.use('/visit',visitRouter);
+app.use('/upload',uploadRouter);
 
-app.get('/',(req, res) => {
-    res.redirect('/login')
-})
-
-app.get('/login',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/login.html'))
-})
-
-app.get('/visit',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/visit.html'))
-})
-
-app.get('/upload',(req, res) => {
-    res.sendFile(path.join(__dirname, './public/upload.html'))
-})
-
-app.get('/users', async (req, res) => {
-    res.json(users);
-    console.log(users);
-})
-
-app.post('/user', async (req, res) => {
-    console.log(req.body);
-    const { name, memo} = req.body;
-    const id = Data.now();
-    users[id] = { name, memo};
-    console.log(users);
-    res.end()
-})
-
-app.put('/user/:id', async (req, res) => {
-    console.log(req.body);
-    const { name, memo} = req.body;
-    users[req.params.id] = { name, memo};
-    console.log(users);
-    res.end()
-})
-
-app.delete('/user/:id', async (req, res) => {
-    delete users[req.params.id];
-    res.end()
-})
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {
   res.status(404).send(`${req.method} ${req.path} is NOT FOUND`);

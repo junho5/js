@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session')
 const path = require('path');
 const multer = require('multer');
+const nunjucks = require('nunjucks');
+const fs = require('fs').promises
 
 // const upload = multer({
 //     storage:multer.diskStorage({
@@ -22,38 +24,52 @@ const multer = require('multer');
 // });
 
 // import routers
-const loginRouter = require('./routes/login')
-const visitRouter = require('./routes/visit')
-const uploadRouter = require('./routes/upload')
+// const loginRouter = require('./routes/login')
+// const visitRouter = require('./routes/visit')
+// const uploadRouter = require('./routes/upload')
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
+app.set('view engine','html');
+
+nunjucks.configure('views',{
+    express: app,
+    watch: true,
+});
 
 // express 내부 & 외부 middlewares
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-app.use(cookieParser(process.env.COOKIE_SECRET));
+// app.use(cookieParser(process.env.COOKIE_SECRET));
 
-app.use(
-    session({
-        resave: false,
-        saveUninitialized: false,
-        secret: process.env.COOKIE_SECRET,
-        cookie: {
-            httpOnly: true,
-            secure: false,
-            maxAge: 600000,
-        },
-        name: 'my-session-cookie',
-    })
-);
+// app.use(
+//     session({
+//         resave: false,
+//         saveUninitialized: false,
+//         secret: process.env.COOKIE_SECRET,
+//         cookie: {
+//             httpOnly: true,
+//             secure: false,
+//             maxAge: 600000,
+//         },
+//         name: 'my-session-cookie',
+//     })
+// );
 
 // 요청 경로에 따라 router 실행
-app.use('/',loginRouter);
-app.use('/visit',visitRouter);
-app.use('upload',uploadRouter);
+// app.use('/',loginRouter);
+// app.use('/visit',visitRouter);
+// app.use('upload',uploadRouter);
+
+app.get('/',(req, res) => {
+    res.redirect('/login')
+})
+
+app.get('/login',(req, res) => {
+    res.sendFile(path.join(__dirname, './public/login.html'))
+})
 
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {

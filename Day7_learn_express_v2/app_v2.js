@@ -1,7 +1,6 @@
-// 방문자 및 방문메시지를 전역ㅇ변수 users 대신 users.json에 기록
+// 방문자 및 방문메시지를 전역변수 users 대신 users.json에 기록
 // users.json의 기록을 읽어서 req.users에 저장
 // post, put, delete에 의해 req.users가 수정된 후 users.json에 기록
-
 
 const express = require('express');
 const morgan = require('morgan');

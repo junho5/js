@@ -37,7 +37,7 @@ app.get('/users', async (req, res) => {
 app.post('/user', async (req, res) => {
     console.log(req.body);
     const { name, memo} = req.body;
-    const id = Data.now();
+    const id = Date.now();
     users[id] = { name, memo};
     console.log(users);
     res.end()
