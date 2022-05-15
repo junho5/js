@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
 const path = require('path');
-const multer = require('multer');
 const nunjucks = require('nunjucks');
 const fs = require('fs').promises
 
@@ -35,19 +34,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-// app.use(
-//     session({
-//         resave: false,
-//         saveUninitialized: false,
-//         secret: process.env.COOKIE_SECRET,
-//         cookie: {
-//             httpOnly: true,
-//             secure: false,
-//             maxAge: 600000,
-//         },
-//         name: 'my-session-cookie',
-//     })
-// );
+app.use(
+    session({
+        resave: false,
+        saveUninitialized: false,
+        secret: process.env.COOKIE_SECRET,
+        cookie: {
+            httpOnly: true,
+            secure: false,
+            maxAge: 600000,
+        },
+        name: 'master_check-session-cookie',
+    })
+);
 
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);

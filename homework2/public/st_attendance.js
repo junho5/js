@@ -1,4 +1,6 @@
-// 페이지 로딩 시 출석 정보 가져오는 함수
+// 페이지 로딩 시 출석 정보 가져오는 함수 (관리자용)
+// 학생용이므로 get, post, put 3가지 기능이 가능하다.
+
 async function getAttendance() {
     try {
       const res = await axios.get('/student_attendance/attendances');
@@ -30,21 +32,9 @@ async function getAttendance() {
           }
         });
   
-        // 삭제 버튼 생성
-        const remove = document.createElement('button');
-        remove.textContent = '삭제';
-        remove.addEventListener('click', async () => {
-          try {
-            // 삭제
-            await axios.delete('/student_attendance/attendance/' + key);
-            getAttendance();
-          } catch (err) {
-            console.error(err);
-          }
-        });
+        
         userDiv.appendChild(span);
         userDiv.appendChild(edit);
-        userDiv.appendChild(remove);
         list.appendChild(userDiv);
         console.log(res.data);
       });
@@ -61,7 +51,7 @@ async function getAttendance() {
     const name = e.target.name.value;
     const attendance = e.target.attendance.value;
     if (!name || !attendance) {
-      return alert('이름과 메모를 입력하세요');
+      return alert('이름과 출석 유무를 입력하세요');
     }
     try {
       await axios.post('/student_attendance/attendance', { name, attendance });

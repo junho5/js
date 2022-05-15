@@ -1,4 +1,6 @@
-// 페이지 로딩 시 출석 정보 가져오는 함수
+// 페이지 로딩 시 출석 정보 가져오는 함수 (관리자용)
+// 관리자용이므로 get, post, put, delete 4가지 기능이 가능하다.
+
 async function getScore() {
     try {
       const res = await axios.get('/admin_score/scores');

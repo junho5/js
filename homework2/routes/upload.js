@@ -12,8 +12,8 @@ const upload = multer({
             done(null, 'uploads/');
         },
         filename(req, file, done){
-            const ext = path.extname(file.originalname);
-            done(null,path.basename(file.originalname,ext)+Date.now()+ext);
+            // 파일 이름은 파일 originalname으로 저장
+            done(null,path.basename(file.originalname));
         },
     }),
     limits:{fileSize: 5*1024*1024},
@@ -25,7 +25,7 @@ router.get('/',(req, res) => {
 
 router.post('/', upload.single('image'), (req, res) => {
     console.log(req.file, req.body);
-    res.send('ok');
+    res.redirect('/upload')
 });
 
 module.exports = router;

@@ -1,4 +1,6 @@
-// 페이지 로딩 시 출석 정보 가져오는 함수
+// 페이지 로딩 시 출석 정보 가져오는 함수 (관리자용)
+// 학생용이므로 get 기능만 가능하다.
+
 async function getScore() {
     try {
       const res = await axios.get('/student_score/scores');

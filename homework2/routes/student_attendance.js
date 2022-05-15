@@ -14,6 +14,7 @@ router.get('/attendances', async (req, res) => {
     res.sendFile(path.join(__dirname, './attendances.json'))
 })
 
+// post, put 전에 파일을 읽어야함 
 router.use('/attendance' , async (req, res, next) => {
     req.attendances = JSON.parse(
         await fs.readFile(path.join(__dirname, './attendances.json'))
@@ -21,6 +22,7 @@ router.use('/attendance' , async (req, res, next) => {
     next();
   });
 
+// post 요청 attendances.json에 업데이트
 router.post('/attendance', async (req, res) => {
     const { name, attendance} = req.body;
     const id = Date.now();
@@ -32,6 +34,7 @@ router.post('/attendance', async (req, res) => {
     res.end();
 })
 
+// put 요청 attendances.json에 업데이트
 router
     .route('/attendance/:id')
     .put(async (req, res) => {
@@ -43,14 +46,6 @@ router
         JSON.stringify(req.attendances)
     );
     res.end();
-    })
-    .delete(async (req, res) => {
-    delete req.attendances[req.params.id];
-    await fs.writeFile(
-        path.join(__dirname, './attendances.json'),
-        JSON.stringify(req.attendances)
-    );
-    res.end()
     })
 
 module.exports = router;
