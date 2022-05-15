@@ -1,4 +1,4 @@
-// 학생용 학생 출석 관리하는 라우터
+// 관리자용 학생 출석 관리하는 라우터
 
 const express = require('express');
 const path = require('path');
@@ -7,7 +7,7 @@ const fs = require('fs').promises;
 const router = express.Router();
 
 router.get('/',(req, res) => {
-    res.sendFile(path.join(__dirname, '../views/student_attendance.html'))
+    res.sendFile(path.join(__dirname, '../views/admin_attendance.html'))
 })
 
 router.get('/attendances', async (req, res) => {

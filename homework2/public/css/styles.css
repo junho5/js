@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
   }
   
   body {
@@ -46,4 +47,28 @@
   .links a {
     font-size: 12px;
     color: #9b9b9b;
+  }
+  #input{
+    float: left;
+    padding-right: 10px;
+    width: 130px;
+    }
+  nav {
+      margin-top: 20px;
+      height: 30px;
+      text-align: center;
+  }
+  nav a{
+      margin: 20px;
+      padding: 20px;
+      font-size: 20px;
+  }
+  #list{
+      font-size: 20px;
+  }    
+  #list div{
+      margin-bottom: 10px;
+  }
+  input {
+    width:200px;
   }

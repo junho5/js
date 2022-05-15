@@ -14,7 +14,9 @@ const fs = require('fs').promises
 const loginRouter = require('./routes/login');
 const student_scoreRouter = require('./routes/student_score');
 const student_attendanceRouter = require('./routes/student_attendance');
-// const uploadRouter = require('./routes/upload');
+const admin_scoreRouter = require('./routes/admin_score');
+const admin_attendanceRouter = require('./routes/admin_attendance');
+const uploadRouter = require('./routes/upload');
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -47,46 +49,17 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //     })
 // );
 
-// const upload = multer({
-//     storage:multer.diskStorage({
-//         destination(req,file,done){
-//             done(null, 'uploads/');
-//         },
-//         filename(req, file, done){
-//             const ext = path.extname(file.originalname);
-//             done(null,path.basename(filw.originalname,ext)+Date.now()+ext);
-//         },
-//     }),
-//     limits:{fileSize: 5*1024*1024},
-// });
-
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);
 app.use('/student_score',student_scoreRouter);
 app.use('/student_attendance',student_attendanceRouter);
-// app.use('upload',uploadRouter);
-
-app.get('/student_score',(req, res) => {
-    res.sendFile(path.join(__dirname, './views/student_score.html'))
-})
-
-app.get('/admin_attendance',(req, res) => {
-    res.sendFile(path.join(__dirname, './views/admin_attendance.html'))
-})
-
-app.get('/admin_score',(req, res) => {
-    res.sendFile(path.join(__dirname, './views/admin_score.html'))
-})
-
-app.get('/upload',(req, res) => {
-    res.sendFile(path.join(__dirname, './views/upload.html'))
-})
+app.use('/admin_score',admin_scoreRouter);
+app.use('/admin_attendance',admin_attendanceRouter);
+app.use('/upload',uploadRouter);
 
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {
   res.status(404).send(`${req.method} ${req.path} is NOT FOUND`);
-  // res.status(404).end();
-  // res.sendStatus(404);
 });
 
 // 서버 에러처리 미들웨어

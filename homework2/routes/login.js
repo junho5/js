@@ -1,4 +1,3 @@
-// routes/login.js
 // 로그인을 처리하는 라우터
 
 const express = require('express');
@@ -9,7 +8,7 @@ const router = express.Router();
 router.get('/',(req, res) => {
     console.log(req.signedCookies);
     if (req.signedCookies.admin) {
-        res.sendFile(path.join(__dirname, '../views/student_attendance.html'))
+        res.sendFile(path.join(__dirname, '../views/admin_score.html'))
     }else if (req.signedCookies.student) {
         res.sendFile(path.join(__dirname, '../views/student_score.html'))
     }
@@ -22,8 +21,6 @@ router.get('/login',(req, res) => {
     res.sendFile(path.join(__dirname, '../views/login.html'))
 });
 
-// 입력한 login과 password가 guest, 7777이면
-// res.cookie로 admit를 true로 전달 후 /로 redirect
 router.post('/admit', (req, res) => {
     const {login, password} = req.body;
     console.log(req.body);
@@ -31,7 +28,8 @@ router.post('/admit', (req, res) => {
 
     if (login == 'admin' && password == 'admin'){
         res.cookie('admin', true, {
-            maxAge: 600000, // 시간 설정 (1시간)          
+            expires: new Date(Date.now() + 3000),
+            // maxAge: 600000, // 시간 설정 (1시간)          
             httpOnly: true, // 자바스크립트에선 cookie 조작 불가
             secure: false, // true로 하면 http 전달 x https만 가능
             path: '/', // 모든 path cookie 전달
@@ -40,7 +38,8 @@ router.post('/admit', (req, res) => {
         res.redirect('/');
     }else if (login == 'student' && password == 'student'){
         res.cookie('student', true, {
-            maxAge: 600000, // 시간 설정 (1시간)
+            expires: new Date(Date.now() + 3000),
+            // maxAge: 600000, // 시간 설정 (1시간)
             httpOnly: true, // 자바스크립트에선 cookie 조작 불가
             secure: false, // true로 하면 http 전달 x https만 가능
             path: '/', // 모든 path cookie 전달

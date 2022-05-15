@@ -1,3 +1,5 @@
+// 학생용 학생 점수 관리하는 라우터
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs').promises;
