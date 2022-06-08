@@ -3,6 +3,7 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 
 const router = express.Router();
 
+// req.user의 사용자 데이터를 넌적스 템플릿에서 이용가능하도록 res.locals에 저장
 router.use((req, res, next) => {
   res.locals.user = req.user;
   next();

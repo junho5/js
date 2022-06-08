@@ -5,20 +5,16 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const session = require('express-session');
 const dotenv = require('dotenv');
-// 1. import passport module
 const passport = require('passport');
 
 dotenv.config();
+
 // import routers
 const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
 const { sequelize } = require('./models');
-// 2. import passport 설정 모듈(./passport/index.js)
-const passportConfig = require('./passport');
 
 const app = express();
-// 3. passport 설정 함수 실행
-passportConfig();
 app.set('port', process.env.PORT || 8001);
 app.set('view engine', 'html');
 nunjucks.configure('views', {
@@ -52,7 +48,7 @@ app.use(
   })
 );
 
-// 4. passport 초기화 & 세션 미들웨어 실행
+// passport 초기화 & 세션 미들웨어 실행
 app.use(passport.initialize());
 app.use(passport.session());
 
