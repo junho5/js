@@ -14,6 +14,7 @@ dotenv.config();
 
 // import routers
 const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
 const { sequelize } = require('./models')
 // const { op } = require('sequelize')
 
@@ -59,6 +60,7 @@ app.use(passport.session());
 
 // 요청 경로에 따라 router 실행
 app.use('/',loginRouter);
+app.use('/auth',authRouter);
 
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {

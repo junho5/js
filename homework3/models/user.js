@@ -9,7 +9,7 @@ module.exports = class User extends Sequelize.Model {
       },
       gender: {
         type: Sequelize.STRING(10),
-        allowNull: false,
+        allowNull: true,
       },
       web_id: {
         type: Sequelize.STRING(50),
@@ -17,10 +17,19 @@ module.exports = class User extends Sequelize.Model {
       },
       web_password: {
         type: Sequelize.STRING(100),
-        allowNull: false,
+        allowNull: true,
       },
       comment: {
         type: Sequelize.STRING(255),
+        allowNull: true,
+      },
+      provider: {
+        type: Sequelize.STRING(10),
+        allowNull: false,
+        defaultValue: 'local',
+      },
+      snsId: {
+        type: Sequelize.STRING(30),
         allowNull: true,
       },
     }, {
@@ -36,6 +45,6 @@ module.exports = class User extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
+    db.User.hasMany(db.Thing, { foreignKey: 'user_id', sourceKey: 'id' });
   }
 };

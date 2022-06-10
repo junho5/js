@@ -73,6 +73,26 @@
     text-align: center;
     font-size: 16px;
   }
-  
-  /* footer */
+  .about{
+      padding-top: 30px;
+      font-size: 20px;
+      text-align: center;
+  }
+/* footer */
+.wrapper{
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+footer{
+  height: 60px;
+  position: relative;
+text-align: center;
+color: black;
+  margin-top: -60px;
+}
+footer img{
+  margin: 10px;
+}
+/* --------------------------------------------------------------------- */
   

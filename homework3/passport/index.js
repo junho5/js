@@ -1,6 +1,6 @@
 const passport = require('passport');
 const localStrategy = require('./localStrategy');
-// const kakaoStrategy = require('./kakaoStrategy');
+const kakaoStrategy = require('./kakaoStrategy');
 const User = require('../models/user');
 
 
@@ -17,6 +17,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(localStrategy);
-// passport.use(kakaoStrategy);
+passport.use(kakaoStrategy);
 
 module.exports = passport;

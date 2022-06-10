@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SimpleShop</title>
-    <meta charset="utf-8" />
-    <link href="../stylesheets/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="navbar">
-      <a id='logo'href="">
-        <img src="../images/logo.png.webp" width="149px">
-        </a>
-      <ul id='menu'>
-        <li><a href="aboutUs">aboutUs</a></li>
-        <li><a href="">Shop</a></li>
-        <li><a href="">Cart</a></li>
-        <li><a href="logout">Logout</a></li>
-      </ul>
-    </div>
+{% extends 'layout.html' %}
+{% block content %}
     <div class="header">
     </div>
     <div class="products">
       <h2>Our New Products</h2>
     </div>
-  </body>
-</html>
+{% endblock %}

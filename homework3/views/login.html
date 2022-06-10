@@ -16,7 +16,7 @@
       <h1>Login</h1>
 
       <div class='login-container'>
-        <form id="form" action='/admit' method='post'>
+        <form id="form" action='/auth/admit' method='post'>
             <input type="text" name="web_id" class="text-field" placeholder="ID">
             <div class='login-input-id'>
             <input type="password" name="web_password" class="text-field" placeholder="Password"><br>
@@ -26,9 +26,10 @@
         </form>
         </div>
       </div>
-      <div class="links">
-        <a id='links_1' href="#">비밀번호를 잊어버리셨나요?</a><br><br>
-        <a id='links_2' href="join.html">계정이 없으신가요?</a>
+      
+      <div class="links"><br><br>
+        <a id="kakao" href="/auth/kakao" class="btn">카카오톡 로그인</a>
+        <a id='links_2' href="join.html" class="btn">계정이 없으신가요?</a>
       </div>
     </div>
   </div>
