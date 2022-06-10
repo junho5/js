@@ -8,13 +8,14 @@ const fs = require('fs');
 const dotenv = require('dotenv');
 const multer = require('multer')
 const nunjucks = require('nunjucks')
+const passport = require('passport');
+
 dotenv.config();
 
-const { sequelize } = require('./models');
-
-
 // import routers
-// const loginRouter = require('./routes/login');
+const loginRouter = require('./routes/login');
+const { sequelize } = require('./models')
+// const { op } = require('sequelize')
 
 const app = express();
 app.set('port', process.env.Port || 3000);
@@ -23,15 +24,15 @@ nunjucks.configure('views', {
     express: app,
     watch: true,
 });
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log('데이터베이스 연결 성공');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+sequelize
+    .sync({ force: false })
+    .then(() => {
+        console.log('데이터베이스 연결 성공');
+    })
+    .catch((err) => {
+        console.error(err);
+});
   
-
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'routes')));
@@ -39,7 +40,6 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-
 app.use(
     session({
         resave: false,
@@ -53,9 +53,12 @@ app.use(
         name: 'login_check',
     })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+//--------------------------------------------------------
 
 // 요청 경로에 따라 router 실행
-// app.use('/',loginRouter);
+app.use('/',loginRouter);
 
 // 404 에러처리 미들웨어 (사용자 요청이라서 500위에 작성)
 app.use((req, res, next) => {

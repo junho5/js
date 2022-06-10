@@ -6,24 +6,22 @@ module.exports = class User extends Sequelize.Model {
       name: {
         type: Sequelize.STRING(20),
         allowNull: false,
-        unique: true,
       },
-      age: {
-        type: Sequelize.INTEGER.UNSIGNED,
+      gender: {
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
-      married: {
-        type: Sequelize.BOOLEAN,
+      web_id: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
+      web_password: {
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       comment: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(255),
         allowNull: true,
-      },
-      created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.NOW,
       },
     }, {
       sequelize,

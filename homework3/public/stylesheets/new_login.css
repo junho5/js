@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('../images/Wallpaper.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
+  }
+  
+  .login-form {
+    width: 860px;
+    height: 540px; 
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+  }
+  .login-container{
+      width: 300px;
+      height: 250px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .login-left{
+      border-radius: 10px 0px 0px 10px;
+      width: 50%;
+      height: 100%;
+      float: left;
+      background-image: url('../images/Wallpaper.jpg');
+  }
+  .login-left h1{
+      text-align: center;
+      margin-top: 50%;
+      color: white;
+  }
+  .login-right{
+      background-color: #eeeff1;
+      width: 50%;
+      height: 100%;
+      float: right;
+  }
+  .login-right h1{
+      text-align: center;
+      color: purple;
+      margin-bottom: 100px;
+  }
+  
+  .text-field {
+    font-size: 15px;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    padding: 10px 50px 10px 10px;
+    margin-bottom: 20px;
+    border: none;
+
+  }
+  .submit-btn {
+    font-size: 14px;
+    background-color: rgb(105,163,255);
+    border: none;
+    width: 50%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  .login-btn{
+      text-align: center;
+  }
+  .submit-btn:hover{
+      background-color: blue;
+  }
+  
+  .links {
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  
+  .links a {
+    font-size: 12px;
+    color: #9b9b9b;
+    text-decoration: none;
+  }
+  .links a:hover{
+    color: blue;
+  }
+ 
+
+  

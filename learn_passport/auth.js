@@ -19,13 +19,11 @@ if (req.user) {
 });
 
 router.get('/login', (req, res) => {
-res.sendFile(path.join(__dirname, './public/login.html'));
+    res.sendFile(path.join(__dirname, './public/login.html'));
 });
 
 /* Passport Login */
-router.post(
-'/login',
-passport.authenticate('local', {
+router.post('/login',passport.authenticate('local', {
     failureRedirect: '/login',
 }),
 (req, res) => {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>로그인</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../stylesheets/new_login.css">
+</head>
+
+<body>
+  <div class="login-form">
+    <div class='login-left'>
+      <h1>Free Market</h1>
+    </div>
+    <div class='login-right'>
+      <h1>Login</h1>
+
+      <div class='login-container'>
+        <form id="form" action='/admit' method='post'>
+            <input type="text" name="web_id" class="text-field" placeholder="ID">
+            <div class='login-input-id'>
+            <input type="password" name="web_password" class="text-field" placeholder="Password"><br>
+            </div>
+            <div class="login-btn">
+            <input type="submit" value="로그인" class="submit-btn">
+        </form>
+        </div>
+      </div>
+      <div class="links">
+        <a id='links_1' href="#">비밀번호를 잊어버리셨나요?</a><br><br>
+        <a id='links_2' href="join.html">계정이 없으신가요?</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

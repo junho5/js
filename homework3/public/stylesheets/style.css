@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    min-width: 992px;
+    font-family: "Helvetica";
+  }
+  
+  /* navbar */
+  .navbar{
+    height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .navbar #logo{
+    line-height: 60px;
+  }
+  .navbar #logo img{
+    vertical-align: middle;
+  }
+  #menu{
+    list-style: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+  }
+  #menu li{
+    float: left;
+    margin-left: 50px;
+    line-height: 60px;
+  }
+  #menu li a{
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  /* hero header */
+  .header{
+    height: 450px;
+    background-image: url('../images/hero_header.jpg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  /* products */
+  .products{
+    width: 735px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .products h2{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .products img{
+    width: 225px;
+    height: 225px;
+    margin-bottom: 20px;
+  }
+  .item{
+    float: left;
+    width: 225px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  }
+  .item p{
+    margin: 0;
+    margin-bottom: 4px;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  /* footer */
+  
