@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form id="twit-form" action="/thing" method="post">
+    <div class="input-group">
+      <input type="text" name="name" class="text-field" placeholder="이름">
+      <input type="text" name="price" class="text-field" placeholder="가격">
+      <input type="text" name="stock" class="text-field" placeholder="재고 상황">
+      <button id="twit-btn" type="submit" class="btn">등록</button>
+    </div>
+    <br><br>
+</form>
+<div class="twits">
+    <table border="1" class="shop_list">
+        <th>번호</th>
+        <th>이름</th>
+        <th>판매자</th>
+        <th>가격</th>
+        <th>재고상황</th>
+        {% for twit in twits %}
+        <tr>
+            <td>{{twit.id}}</td>
+            <td>{{twit.name}}</td>
+            <td>{{twit.User.name}}</td>
+            <td>{{twit.price}}</td>
+            <td>{{twit.stock}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

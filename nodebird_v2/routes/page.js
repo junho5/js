@@ -10,6 +10,9 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', isLoggedIn, (req, res) => {
+    console.log('-----')
+    console.log(req.user.id)
+    console.log('-----')
   res.render('profile', { title: '내 정보 - NodeBird' });
 });
 

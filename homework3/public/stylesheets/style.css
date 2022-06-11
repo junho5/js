@@ -10,7 +10,7 @@
   
   /* navbar */
   .navbar{
-    height: 60px;
+    height: 80px;
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -34,16 +34,17 @@
   #menu li a{
     color: black;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: bold;
   }
   /* hero header */
   .header{
-    height: 450px;
-    background-image: url('../images/hero_header.jpg.webp');
+    margin-left: 15%;
+    height: 600px;
+    background-image: url('../images/hero_header.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    /* background-size: cover; */
+    /* background-position: center center; */
   }
   /* products */
   .products{
@@ -95,4 +96,38 @@ footer img{
   margin: 10px;
 }
 /* --------------------------------------------------------------------- */
-  
+.input-group{
+    margin-left: 50px;
+    text-align: center;
+}
+.twits{
+    margin-left: 32%;
+    text-align: center;
+}
+.shop_list{
+    width: 700px;
+}
+input{
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+}
+#twit-btn{
+    font-size: 15px;
+}
+.about{
+margin-left: 15%;
+height: 800px;
+background-image: url('../images/about.jpg');
+background-repeat: no-repeat;
+/* background-size: cover; */
+/* background-position: center center; */
+}
+.about h2{
+    margin-top: 180px;
+    margin-left: 200px;
+}
+.about p{
+margin-left: 200px;
+}

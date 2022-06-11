@@ -12,7 +12,7 @@ module.exports = class Thing extends Sequelize.Model {
         allowNull: false,
       },
       stock: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
     }, {

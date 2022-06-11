@@ -1,9 +1,48 @@
 {% extends 'layout.html' %}
+
 {% block content %}
-  <body>
-    <div class="about">
-        <h2>해당 홈페이지는 다양한 물건에 대해서 가격과 재고상황을 확인할수있는 홈페이지입니다.</h2>
-        <h3>자신이 원하는 물건의 가격과 재고상황을 확인해보세요!</h3>
+<form id="twit-form" action="/thing" method="post">
+    <div class="input-group">
+      <input type="text" name="name" class="text-field" placeholder="이름">
+      <input type="text" name="price" class="text-field" placeholder="가격">
+      <input type="text" name="stock" class="text-field" placeholder="재고 상황">
+      <button id="twit-btn" type="submit" class="btn">등록</button>
     </div>
-  </body>
+    <br><br>
+</form>
+<div class="twits">
+    <table border="1" class="shop_list">
+        <th>번호</th>
+        <th>이름</th>
+        <th>판매자</th>
+        <th>가격</th>
+        <th>재고상황</th>
+        {% for twit in twits %}
+        <tr>
+            <td>{{twit.id}}</td>
+            <td>{{twit.name}}</td>
+            <td>{{twit.User.name}}</td>
+            <td>{{twit.price}}</td>
+            <td>{{twit.stock}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br><br>
+    <table border="1" class="shop_list">
+        <form action="/delete_goods" method="post">
+            <td><input type="text" name="thing_num" class="text-field" placeholder="물건번호">
+                <button id="twit-btn" type="submit" class="btn">삭제</button></td>
+        </form>
+    </table>
+    <br><br><br>
+    <table border="1" class="shop_list">
+        <form action="/edit_goods" method="post">
+            <td><input type="text" name="thing_num" class="text-field" placeholder="물건번호">
+                <input type="text" name="name" class="text-field" placeholder="이름">
+                <input type="text" name="price" class="text-field" placeholder="가격">
+                <input type="text" name="stock" class="text-field" placeholder="재고 상황">
+                <button id="twit-btn" type="submit" class="btn">수정</button></td>
+        </form>
+    </table>
+</div>
 {% endblock %}

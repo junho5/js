@@ -5,15 +5,17 @@ const User = require('../models/user');
 
 
 passport.serializeUser(function(user, done) {
+    console.log('check1')
     console.log("serializeUser ", user)
     done(null, user.id);
   });
   
 passport.deserializeUser(function(id, done) {
+    console.log('check2')
     console.log("deserializeUser id ", id)
     User.findOne({ where: { id }})
         .then((user) => done(null, user))
-        .catch((err) => done(err));   
+        .catch((err) => done(err));  
 });
 
 passport.use(localStrategy);

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="input-group">
+    <form id="comment-form"></form>
+        <input type="text" id="name" class="text-field" placeholder="이름">
+        <input type="text" id="price" class="text-field" placeholder="가격">
+        <input type="text" id="stock" class="text-field" placeholder="재고 상황">
+        <button id="twit-btn" type="submit" class="btn">등록</button>
+    </form>
+</div>
+<br>
+    <table id="comment-list">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>가격</th>
+                <th>재고 상황</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/sequelize.js"></script>
+</div>
+{% endblock %}
