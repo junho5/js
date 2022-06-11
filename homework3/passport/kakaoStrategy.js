@@ -1,6 +1,7 @@
 const KakaoStrategy = require('passport-kakao').Strategy;
 const User = require('../models/user');
 
+// 카카오 로그인 strategy부분
 module.exports = new KakaoStrategy(
   {
     clientID: process.env.KAKAO_ID,

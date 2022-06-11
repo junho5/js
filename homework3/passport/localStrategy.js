@@ -2,6 +2,7 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
+// local 로그인 strategy부분
 module.exports = new LocalStrategy({
     usernameField: 'web_id',
     passwordField: 'web_password'

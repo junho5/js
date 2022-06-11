@@ -17,7 +17,6 @@ const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
 const thingRouter = require('./routes/thing');
 const { sequelize } = require('./models')
-// const { op } = require('sequelize')
 
 const app = express();
 app.set('port', process.env.Port || 3000);

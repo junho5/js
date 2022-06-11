@@ -17,13 +17,13 @@
         <th>판매자</th>
         <th>가격</th>
         <th>재고상황</th>
-        {% for twit in twits %}
+        {% for thing in things %}
         <tr>
-            <td>{{twit.id}}</td>
-            <td>{{twit.name}}</td>
-            <td>{{twit.User.name}}</td>
-            <td>{{twit.price}}</td>
-            <td>{{twit.stock}}</td>
+            <td>{{thing.id}}</td>
+            <td>{{thing.name}}</td>
+            <td>{{thing.User.name}}</td>
+            <td>{{thing.price}}</td>
+            <td>{{thing.stock}}</td>
         </tr>
         {% endfor %}
     </table>
